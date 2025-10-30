@@ -73,36 +73,21 @@
             line-height: 1.6;
         }
 
-        /* --- Subscription Form --- */
-        .subscribe-form {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-
-        .subscribe-form input[type="email"] {
-            width: 70%;
-            padding: 15px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 5px 0 0 5px; /* Rounded left corners */
-            outline: none;
-            color: #333;
-        }
-
-        .subscribe-form button {
-            padding: 15px 25px;
-            font-size: 1rem;
+        /* --- Portfolio Button --- */
+        .portfolio-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.1rem;
             font-weight: bold;
-            border: none;
             background: #ffffff;
             color: #333333;
-            cursor: pointer;
-            border-radius: 0 5px 5px 0; /* Rounded right corners */
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 30px;
             transition: background-color 0.3s ease;
         }
 
-        .subscribe-form button:hover {
+        .portfolio-button:hover {
             background-color: #f0f0f0;
         }
 
@@ -128,17 +113,13 @@
 
         <h1>COMING SOON</h1>
         
-        <p>We're working hard to launch our new site. Stay tuned for updates!</p>
+        <p>We're working hard to launch our new site. In the meantime, check out my work!</p>
 
-        <form class="subscribe-form" action="#" method="POST">
-            <input type="email" name="email" placeholder="Enter your email" required>
-            <button type="submit">Notify Me</button>
-        </form>
+        <a href="folio.html" class="portfolio-button">View My Portfolio</a>
 
         <div class="social-links">
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/bizenix.in/?utm_source=ig_web_button_share_sheet" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/bizenix" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         </div>
 
     </div>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Chandiramani - Portfolio</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* --- Global Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* --- Background (Same as index.html) --- */
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://image.pollinations.ai/prompt/abstract%20digital%20art,%20futuristic,%20circuit%20board%20elements,%20dark%20grey,%20white,%20subtle%20burnt%20orange,%20technological,%20high%20resolution?width=1200&height=800&seed=42');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 20px;
+        }
+
+        /* --- Content Container (Frosted Glass) --- */
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin: 40px auto; 
+            background: rgba(10, 10, 10, 0.4); 
+            border-radius: 12px;
+            padding: 30px 40px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        /* --- Back Link --- */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+        .back-link:hover {
+            color: #cccccc;
+        }
+        .back-link i {
+            margin-right: 8px;
+        }
+
+        /* --- Header --- */
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+
+        /* --- Profile Picture --- */
+        .profile-pic {
+            width: 150px; /* Adjust size as needed */
+            height: 150px; /* Same as width for a perfect circle */
+            border-radius: 50%; /* Makes it circular */
+            object-fit: cover; /* Ensures image covers the area without distortion */
+            border: 3px solid rgba(255, 255, 255, 0.4); /* Optional border */
+            margin: 0 auto 30px auto; /* Centers the image and adds space below */
+            display: block; /* Important for margin: auto to work */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4); /* Subtle shadow */
+        }
+
+        /* --- Section Styling --- */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 8px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        /* --- CV Item Styling --- */
+        .cv-item {
+             margin-bottom: 25px;
+        }
+        .cv-item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #f0f0f0;
+            margin-bottom: 0;
+        }
+        .cv-item .sub-heading {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #dddddd;
+            margin-bottom: 2px;
+        }
+        .cv-item .date {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: #bbbbbb;
+            margin-bottom: 10px;
+        }
+        .cv-item p {
+            margin-bottom: 15px;
+        }
+        .cv-item ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            padding-left: 5px;
+        }
+         .cv-item ul li {
+            margin-bottom: 5px;
+        }
+
+        /* --- Skills List (Pills) --- */
+        .skills-group {
+            margin-bottom: 15px;
+        }
+        .skills-group h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #f0f0f0;
+            margin-bottom: 10px;
+        }
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skills-list li {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* --- Contact --- */
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        .contact-info a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 25px;
+                margin: 20px auto;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+
+        <header style="text-align: center;"> <h1>ADITYA CHANDIRAMANI</h1>
+            <p class="subtitle">BCA & Data Science Student</p>
+            <img src="profile.jpeg" alt="Aditya Chandiramani Profile" class="profile-pic">
+        </header>
+
+        <section class="about-me">
+            <h2>About Me</h2>
+            <p>
+                I am currently pursuing a Bachelor of Computer Applications (BCA) at Navrachana University, Vadodara, while simultaneously enrolled in the prestigious online B.Sc. program in Data Science and Programming from the Indian Institute of Technology (IIT) Madras.
+            </p>
+            <p>
+                With a strong foundation in computer science and a focused interest in data analytics and programming, I am developing the technical and analytical skills needed to solve real-world problems through data-driven solutions. My academic journey reflects a commitment to excellence, continuous learning, and adaptability in a fast-evolving digital landscape.
+            </p>
+            <p>
+                I am eager to explore opportunities in data science, software development, or research that allow me to apply my knowledge, contribute meaningfully, and grow professionally.
+            </p>
+        </section>
+        
+        <section class="education">
+            <h2>Education</h2>
+
+            <div class="cv-item">
+                <h3>Indian Institute of Technology, Madras</h3>
+                <p class="sub-heading">Bachelor's of Science, Data Science</p>
+                <p class="date">Jan 2025 - May 2029</p>
+            </div>
+
+            <div class="cv-item">
+                <h3>Navrachana University</h3>
+                <p class="sub-heading">Bachelor of Computer Applications, Computer Science</p>
+                <p class="date">Aug 2024 - May 2028</p>
+            </div>
+            
+            <div class="cv-item">
+                <h3>Lycee francais charlemagne</h3>
+                <p class="sub-heading">Spécialités Mathématiques & Physique-Chimie</p>
+                <p class="date">2012 - 2023</p>
+            </div>
+        </section>
+
+        <section class="experience">
+            <h2>Experience</h2>
+            
+            <div class="cv-item">
+                <h3>Founder</h3>
+                <p class="sub-heading">BIZENIX · Full-time</p>
+                <p class="date">Oct 2025 - Present · Vadodara, Gujarat, India</p>
+                <p>As the Founder of Bizenix, I am leading the vision, strategy, and execution of a tech-driven business solutions platform. My role includes:</p>
+                <ul>
+                    <li>Building and scaling digital products focused on business automation & growth</li>
+                    <li>Managing end-to-end operations — from product design to deployment</li>
+                    <li>Driving customer acquisition, partnerships, and brand development</li>
+                    <li>Overseeing technology stack, UX, and performance optimization</li>
+                    <li>Leading a small agile team and collaborating with freelancers/partners</li>
+                    <li>Handling financial planning, fundraising strategies, and market research</li>
+                </ul>
+                <p>Focused on creating smart, sustainable, and impactful business solutions for startups, SMEs, and enterprises.</p>
+            </div>
+            
+            <div class="cv-item">
+                <h3>Data Analyst</h3>
+                <p class="sub-heading">SkillFied Mentor · Internship</p>
+                <p class="date">May 2025 - Jul 2025 · Remote</p>
+                <ul>
+                    <li>Conducted comprehensive banking data analysis to identify trends and optimize financial strategies.</li>
+                    <li>Analyzed client subscription patterns for term deposits, enhancing customer retention strategies.</li>
+                    <li>Investigated colorectal cancer risk and survival data, contributing to improved healthcare outcomes.</li>
+                </ul>
+            </div>
+            
+            <div class="cv-item">
+                <h3>Data Analyst</h3>
+                <p class="sub-heading">BONAF · Internship</p>
+                <p class="date">May 2025 - Jul 2025 · Pointe-Noire, Republic of the Congo</p>
+                 <ul>
+                    <li>Analyzed import data for frozen goods in the Republic of the Congo, ensuring accuracy and relevance.</li>
+                    <li>Cleaned and rearranged large datasets to facilitate effective data visualization in Excel.</li>
+                    <li>Developed insightful visual reports that aided decision-making processes, enhancing operational efficiency.</li>
+                </ul>
+            </div>
+            
+            <div class="cv-item">
+                <h3>Intern</h3>
+                <p class="sub-heading">Basant Nihalani And Co · Full-time</p>
+                <p class="date">Dec 2024 - Jan 2025 · Vadodara, Gujarat, India</p>
+                 <ul>
+                    <li>Analyzed historical data to forecast future trends using Python's Pandas library and Microsoft Excel.</li>
+                    <li>Developed predictive models that enhanced decision-making processes for the company.</li>
+                    <li>Collaborated with team members to ensure data accuracy and relevance, contributing to strategic planning.</li>
+                </ul>
+            </div>
+            
+            <div class="cv-item">
+                <h3>Intern</h3>
+                <p class="sub-heading">SOCOTRANS · Full-time</p>
+                <p class="date">Jul 2024 - Aug 2024 · Republic of the Congo</p>
+                <ul>
+                    <li>Assisted in managing logistics paperwork and operations, ensuring compliance with local regulations.</li>
+                    <li>Collaborated with mentors on field operations, gaining hands-on experience in logistics management.</li>
+                    <li>Participated in a government boat verification process to confirm documentation accuracy.</li>
+                </ul>
+            </div>
+            
+             <div class="cv-item">
+                <h3>Cashier</h3>
+                <p class="sub-heading">Real Canadian Superstore · Part-time</p>
+                <p class="date">Jan 2024 - May 2024 · Canada</p>
+                <p>Managed cash transactions, provided customer service, and handled data entry for sales records in a fast-paced retail environment.</p>
+            </div>
+            
+            <div class="cv-item">
+                <h3>Intern</h3>
+                <p class="sub-heading">Ste Topchine SARLU · Full-time</p>
+                <p class="date">Dec 2023 - Jan 2024 · Republic of the Congo</p>
+                 <p>Supported import/export operations, managed client accounts, and contributed to social media marketing and sales initiatives.</p>
+            </div>
+        </section>
+
+        <section class="skills">
+            <h2>Skills</h2>
+            
+            <div class="skills-group">
+                <h4>Programming & Technology</h4>
+                <ul class="skills-list">
+                    <li>Python</li>
+                    <li>C (Programming Language)</li>
+                    <li>C++</li>
+                    <li>Object-Oriented Programming (OOP)</li>
+                    <li>Front-end Coding</li>
+                    <li>Back-end Coding</li>
+                    <li>Software Development</li>
+                    <li>Mobile Applications</li>
+                    <li>ERP Software</li>
+                    <li>Oracle SQL Developer</li>
+                    <li>MySQL</li>
+                </ul>
+            </div>
+            
+            <div class="skills-group">
+                <h4>Data & Analytics</h4>
+                <ul class="skills-list">
+                    <li>Data Analysis</li>
+                    <li>Statistical Data Analysis</li>
+                    <li>Exploratory Data Analysis (EDA)</li>
+                    <li>Data Modeling</li>
+                    <li>Microsoft Excel</li>
+                    <li>Data Entry</li>
+                    <li>Mathematics</li>
+                    <li>Statistics</li>
+                    <li>Pseudocode</li>
+                </ul>
+            </div>
+            
+            <div class="skills-group">
+                <h4>Business & Soft Skills</h4>
+                <ul class="skills-list">
+                    <li>English</li>
+                    <li>French</li>
+                    <li>English to French</li>
+                    <li>French to English</li>
+                    <li>Communication</li>
+                    <li>Customer Service</li>
+                    <li>Relationship Building</li>
+                    <li>Account Management</li>
+                    <li>Logistics Management</li>
+                    <li>Import/Export Operations</li>
+                    <li>Time Management</li>
+                    <li>Social Media Marketing</li>
+                    <li>Sales</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="contact">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:adityachandiramani@outlook.com" target="_blank">adityachandiramani@outlook.com</a></p>
+                <p>LinkedIn: <a href="https://linkedin.com/in/adityachandiramani" target="_blank">linkedin.com/in/adityachandiramani</a></p>
+                <p>GitHub: <a href="https://github.com/aditya-v-1312" target="_blank">github.com/aditya-v-1312</a></p>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
