@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bizenix - Coming Soon</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* --- Global Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #ffffff;
+        }
+
+        /* --- Background & Layout --- */
+        body {
+            /* Abstract art background incorporating logo colors (dark grey, white, hint of orange/brown) */
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://image.pollinations.ai/prompt/abstract%20digital%20art,%20futuristic,%20circuit%20board%20elements,%20dark%20grey,%20white,%20subtle%20burnt%20orange,%20technological,%20high%20resolution?width=1200&height=800&seed=42');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            /* This centers the content */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* --- Content Container --- */
+        .container {
+            max-width: 650px;
+            width: 100%;
+            
+            /* Optional: Adds a "frosted glass" effect like in the design */
+            background: rgba(10, 10, 10, 0.2);
+            border-radius: 12px;
+            padding: 40px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- Logo --- */
+        .logo {
+            width: 100%;
+            max-width: 350px; /* Adjust size as needed */
+            height: auto;
+            margin-bottom: 25px;
+        }
+
+        /* --- Text Content --- */
+        h1 {
+            font-size: 3.5rem; /* Large "COMING SOON" text */
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        p {
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* --- Subscription Form --- */
+        .subscribe-form {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .subscribe-form input[type="email"] {
+            width: 70%;
+            padding: 15px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px 0 0 5px; /* Rounded left corners */
+            outline: none;
+            color: #333;
+        }
+
+        .subscribe-form button {
+            padding: 15px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            background: #ffffff;
+            color: #333333;
+            cursor: pointer;
+            border-radius: 0 5px 5px 0; /* Rounded right corners */
+            transition: background-color 0.3s ease;
+        }
+
+        .subscribe-form button:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* --- Social Media Links --- */
+        .social-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.8rem; /* Size of the icons */
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #cccccc; /* Light gray on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <img src="bizenix.jpeg" alt="Bizenix Logo" class="logo">
+
+        <h1>COMING SOON</h1>
+        
+        <p>We're working hard to launch our new site. Stay tuned for updates!</p>
+
+        <form class="subscribe-form" action="#" method="POST">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit">Notify Me</button>
+        </form>
+
+        <div class="social-links">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+
+    </div>
+
+</body>
+</html>
