@@ -3,380 +3,518 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Chandiramani - Portfolio</title>
-    
+    <title>Aditya Chandiramani | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
-        /* --- Global Styles --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* --- Variables & Reset --- */
+        :root {
+            --primary: #3e2469;
+            --primary-dark: #2a184a;
+            --secondary: #f07800; /* Accent orange from Bizenix logo context */
+            --bg-light: #f8f9fa;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
         }
 
-        body, html {
-            height: 100%;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: #333333; /* Default text is dark */
+            background-color: var(--bg-light);
+            color: var(--text-dark);
             line-height: 1.6;
         }
 
-        /* --- Background (Changed to light gray) --- */
-        body {
-            background: #3e2469; /* Light gray background */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            padding: 20px;
-        }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
 
-        /* --- Content Container (Changed to white card) --- */
-        .container {
-            max-width: 800px;
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
             width: 100%;
-            margin: 40px auto; 
-            background: #ffffff; /* White card background */
-            border-radius: 12px;
-            padding: 30px 40px;
-            border: 1px solid #e0e0e0; /* Light border */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Subtle shadow */
-            text-align: left;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        /* --- Back Link (Changed to purple) --- */
-        .back-link {
-            display: inline-block;
-            margin-bottom: 25px;
-            color: #3e2469; /* Purple */
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        .back-link:hover {
-            color: #2a184a; /* Darker purple */
-        }
-        .back-link i {
-            margin-right: 8px;
+        .nav-logo { font-weight: 800; font-size: 1.2rem; color: var(--primary); letter-spacing: 1px; }
+
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-size: 0.95rem; font-weight: 500; color: var(--text-dark); }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* --- Layout Utility --- */
+        .section-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 20px;
         }
 
-        /* --- Header (Changed to purple) --- */
-        h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: #3e2469; /* Purple */
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+            position: relative;
         }
-        .subtitle {
-            font-size: 1.3rem;
-            font-weight: 300;
-            color: #555555; /* Dark gray */
-            margin-bottom: 30px;
+        
+        /* Decor line under titles */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 10px auto 0;
+            border-radius: 2px;
         }
 
-        /* --- Profile Picture (Changed border to purple) --- */
-        .profile-pic {
-            width: 150px; 
-            height: 150px;
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 60px;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+        }
+
+        .hero-content img {
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #3e2469; /* Purple border */
-            margin: 0 auto 30px auto;
-            display: block;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); 
-        }
-
-        /* --- Section Styling (Changed to purple) --- */
-        h2 {
-            font-size: 1.6rem;
-            font-weight: 600;
-            border-bottom: 2px solid #3e2469; /* Purple underline */
-            color: #3e2469; /* Purple text */
-            padding-bottom: 8px;
-            margin-top: 30px;
+            border: 4px solid var(--white);
+            box-shadow: var(--shadow);
             margin-bottom: 20px;
         }
 
-        /* --- CV Item Styling (Text colors updated) --- */
-        .cv-item {
-             margin-bottom: 25px;
-        }
-        .cv-item h3 {
-            font-size: 1.2rem;
+        .hero h1 { font-size: 3.5rem; color: var(--primary); margin-bottom: 10px; }
+        .hero .role { font-size: 1.5rem; color: var(--text-light); margin-bottom: 30px; font-weight: 300; }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 30px;
             font-weight: 600;
-            color: #333333; /* Dark text */
-            margin-bottom: 0;
+            box-shadow: 0 4px 15px rgba(62, 36, 105, 0.3);
         }
-        .cv-item .sub-heading {
-            font-size: 1rem;
-            font-weight: 500;
-            color: #555555; /* Medium-dark gray */
-            margin-bottom: 2px;
-        }
-        .cv-item .date {
-            font-size: 0.9rem;
-            font-style: italic;
-            color: #777777; /* Medium gray */
-            margin-bottom: 10px;
-        }
-        .cv-item p {
-            margin-bottom: 15px;
-        }
-        .cv-item ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-            padding-left: 5px;
-        }
-         .cv-item ul li {
-            margin-bottom: 5px;
+        .btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
+        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); margin-left: 10px; }
+        .btn-outline:hover { background: var(--primary); color: var(--white); }
+
+        /* --- Projects Section (New & Visual) --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        /* --- Skills List (Pills changed to purple) --- */
-        .skills-group {
-            margin-bottom: 15px;
+        .project-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
         }
-        .skills-group h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #333333; /* Dark text */
-            margin-bottom: 10px;
+
+        .project-card:hover { transform: translateY(-10px); }
+
+        .project-img-placeholder {
+            height: 160px;
+            background: linear-gradient(45deg, var(--primary), #6a4c9c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.2);
+            font-size: 3rem;
         }
-        .skills-list {
-            list-style: none;
-            padding: 0;
+
+        .project-info { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .project-info h3 { color: var(--text-dark); margin-bottom: 10px; }
+        .project-info p { font-size: 0.95rem; color: var(--text-light); margin-bottom: 20px; flex-grow: 1; }
+        
+        .tech-stack { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+        .tech-tag { font-size: 0.75rem; background: #f0f0f0; padding: 4px 10px; border-radius: 4px; color: #555; }
+
+        .project-link { font-size: 0.9rem; font-weight: 700; color: var(--primary); }
+        .project-link i { margin-left: 5px; }
+
+        /* --- Experience & Education (Timeline Style) --- */
+        .timeline-container {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-item {
+            border-left: 3px solid #eee;
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item:last-child { margin-bottom: 0; }
+
+        .timeline-item::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: var(--primary);
+            border-radius: 50%;
+            position: absolute;
+            left: -9.5px;
+            top: 0;
+        }
+
+        .timeline-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; flex-wrap: wrap; }
+        .timeline-header h3 { font-size: 1.2rem; color: var(--text-dark); }
+        .timeline-header .company { color: var(--primary); font-weight: 600; margin-right: 10px; }
+        .timeline-header .date { font-size: 0.85rem; color: #999; font-weight: 500; }
+
+        /* --- Skills (Tags) --- */
+        .skills-wrapper {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 40px;
+            justify-content: center;
         }
-        .skills-list li {
-            background: #3e2469; /* Purple background */
-            color: #ffffff; /* White text */
-            padding: 6px 14px;
-            border-radius: 15px;
-            font-size: 0.9rem;
-            font-weight: 500;
+        .connect-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            align-items: start;
         }
 
-        /* --- Contact (Links changed to purple) --- */
-        .contact-info p {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
+        .connect-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid #eee;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 350px;
         }
-        .contact-info a {
-            color: #3e2469; /* Purple */
-            text-decoration: none;
-            font-weight: 500;
+
+        .connect-card h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 1.3rem;
         }
-        .contact-info a:hover {
-            text-decoration: underline;
+
+        /* Make the images/badges responsive */
+        .connect-card img, 
+        .LI-profile-badge {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
         }
         
-        /* --- Responsive Design --- */
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px 25px;
-                margin: 20px auto;
-            }
-            h1 {
-                font-size: 2.2rem;
-            }
-            .subtitle {
-                font-size: 1.1rem;
-            }
-            h2 {
-                font-size: 1.4rem;
-            }
-            .profile-pic {
-                width: 120px;
-                height: 120px;
-            }
+        .skill-category { flex: 1; min-width: 250px; background: var(--white); padding: 30px; border-radius: 15px; box-shadow: var(--shadow); }
+        .skill-category h3 { font-size: 1.1rem; margin-bottom: 20px; color: var(--primary); text-align: center; border-bottom: 1px solid #eee; padding-bottom: 10px;}
+        
+        .tags { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+        .tag {
+            background: rgba(62, 36, 105, 0.05);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(62, 36, 105, 0.1);
         }
 
+        /* --- Footer --- */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .social-links { margin-top: 20px; display: flex; justify-content: center; gap: 20px; }
+        .social-links a {
+            width: 45px; height: 45px;
+            background: rgba(255,255,255,0.1);
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+            font-size: 1.2rem;
+        }
+        .social-links a:hover { background: var(--white); color: var(--primary); transform: translateY(-3px); }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Simple hide for mobile for now */
+            .timeline-header { flex-direction: column; gap: 5px; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <nav>
+        <div class="nav-logo">ADITYA C.</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero" id="about">
+        <div class="hero-content">
+            <img src="profile.jpeg" alt="Aditya Chandiramani">
+            <h1>Aditya Chandiramani</h1>
+            <p class="role">Founder of BIZENIX | Data Science Student @ IIT Madras</p>
+            <p style="max-width: 600px; margin: 0 auto 30px auto; color: #666;">
+                Building digital products focused on business automation. Developing solutions for startups and SMEs while mastering Data Science and Computer Applications.
+            </p>
+            <a href="#contact" class="btn">Get In Touch</a>
+            <a href="#projects" class="btn btn-outline">View Work</a>
+        </div>
+    </header>
+
+    <section class="section-container" id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div class="project-img-placeholder"><i class="fas fa-rocket"></i></div>
+                <div class="project-info">
+                    <h3>BIZENIX Platform</h3>
+                    <p>A tech-driven business solutions platform. Leading strategy, product design, and full-stack development to help SMEs automate operations.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Founder</span>
+                        <span class="tech-tag">Strategy</span>
+                        <span class="tech-tag">Full Stack</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img-placeholder" style="background: linear-gradient(45deg, #27ae60, #2ecc71);"><i class="fas fa-recycle"></i></div>
+                <div class="project-info">
+                    <h3>Urban Waste Management Study</h3>
+                    <p>Documentary and data analysis project focusing on waste management protocols in the Gotri area of Vadodara. identified key logistical bottlenecks.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Research</span>
+                        <span class="tech-tag">Data Collection</span>
+                        <span class="tech-tag">Social Impact</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img-placeholder" style="background: linear-gradient(45deg, #2980b9, #3498db);"><i class="fas fa-brain"></i></div>
+                <div class="project-info">
+                    <h3>AI-Powered Business Manager</h3>
+                    <p>Conceptualized and designed a business plan for an app integrating Artificial Intelligence to streamline management tasks for modern enterprises.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">AI Strategy</span>
+                        <span class="tech-tag">Product Design</span>
+                        <span class="tech-tag">Automation</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img-placeholder" style="background: linear-gradient(45deg, #e67e22, #f1c40f);"><i class="fas fa-code"></i></div>
+                <div class="project-info">
+                    <h3>Python Algorithms Repository</h3>
+                    <p>A collection of optimized Data Structures and Algorithms implemented in Python, demonstrating proficiency in complex logic and performance optimization.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">DSA</span>
+                        <span class="tech-tag">Optimization</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img-placeholder" style="background: linear-gradient(45deg, #8e44ad, #9b59b6);"><i class="fas fa-ship"></i></div>
+                <div class="project-info">
+                    <h3>Logistics Data Optimization</h3>
+                    <p>Analyzed import data for frozen goods in the Republic of Congo. Cleaned large datasets and created visual reports to enhance operational efficiency.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Excel</span>
+                        <span class="tech-tag">Data Cleaning</span>
+                        <span class="tech-tag">Visualization</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img-placeholder" style="background: linear-gradient(45deg, #c0392b, #e74c3c);"><i class="fas fa-users"></i></div>
+                <div class="project-info">
+                    <h3>NUV Tech Leadership</h3>
+                    <p>Organized key student events including a 'LinkedIn & Personal Branding' workshop for the BCA department at Navrachana University.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Leadership</span>
+                        <span class="tech-tag">Event Mgmt</span>
+                        <span class="tech-tag">Mentoring</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-container" id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline-container">
+            
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div><span class="company">BIZENIX</span> — Founder</div>
+                    <span class="date">Oct 2025 - Present</span>
+                </div>
+                <p>Leading vision and execution. Building digital products, managing operations, and driving customer acquisition.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div><span class="company">SkillFied Mentor</span> — Data Analyst Intern</div>
+                    <span class="date">May 2025 - Jul 2025</span>
+                </div>
+                <p>Conducted banking data analysis and investigated healthcare outcomes regarding colorectal cancer risk.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div><span class="company">BONAF</span> — Data Analyst Intern</div>
+                    <span class="date">May 2025 - Jul 2025</span>
+                </div>
+                <p>Cleaned large datasets and developed visual reports for decision-making in import operations.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div><span class="company">Basant Nihalani And Co</span> — Intern</div>
+                    <span class="date">Dec 2024 - Jan 2025</span>
+                </div>
+                <p>Developed predictive models using Python to forecast future trends and enhance strategic planning.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-container" id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-wrapper">
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Programming</h3>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">C/C++</span>
+                    <span class="tag">OOP</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">Web Dev</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-database"></i> Data Science</h3>
+                <div class="tags">
+                    <span class="tag">Data Analysis</span>
+                    <span class="tag">Statistics</span>
+                    <span class="tag">EDA</span>
+                    <span class="tag">Modeling</span>
+                    <span class="tag">Excel</span>
+                    <span class="tag">Visualization</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-briefcase"></i> Business</h3>
+                <div class="tags">
+                    <span class="tag">Leadership</span>
+                    <span class="tag">Logistics</span>
+                    <span class="tag">Communication</span>
+                    <span class="tag">Marketing</span>
+                    <span class="tag">French (Bilingual)</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-container" id="connect">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="connect-grid">
+            
+            <div class="connect-card">
+                <h3><i class="fab fa-github"></i> GitHub Activity</h3>
+                <a href="https://github.com/aditya-v-1312" target="_blank">
+                    <img src="https://github-readme-stats.vercel.app/api?username=aditya-v-1312&show_icons=true&bg_color=ffffff&title_color=3e2469&text_color=333&icon_color=f07800&border_color=eee&hide_border=true" alt="Aditya's GitHub Stats" style="box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                </a>
+                <br>
+                <a href="https://github-readme-stats.vercel.app/api/top-langs/?username=aditya-v-1312&layout=compact&bg_color=ffffff&title_color=3e2469&text_color=333&border_color=eee&hide_border=true" target="_blank">
+                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=aditya-v-1312&layout=compact&bg_color=ffffff&title_color=3e2469&text_color=333&border_color=eee&hide_border=true" alt="Top Languages" style="margin-top: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                </a>
+            </div>
+
+            <div class="connect-card">
+                <h3><i class="fab fa-linkedin"></i> LinkedIn Profile</h3>
+                
+                <div class="badge-base LI-profile-badge" 
+                     data-locale="en_US" 
+                     data-size="medium" 
+                     data-theme="light" 
+                     data-type="VERTICAL" 
+                     data-vanity="adityachandiramani" 
+                     data-version="v1">
+                     <a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/adityachandiramani?trk=profile-badge">
+                        Aditya Chandiramani
+                     </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+
+    <footer id="contact">
+        <h2 style="color: white; margin-bottom: 20px;">Let's Connect</h2>
+        <p style="opacity: 0.8;">Open to opportunities in Data Science and Software Development.</p>
         
-        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
-
-        <header style="text-align: center;"> <h1>ADITYA CHANDIRAMANI</h1>
-            <p class="subtitle">BCA & Data Science Student</p>
-            <img src="profile.jpeg" alt="Aditya Chandiramani Profile" class="profile-pic">
-        </header>
-
-        <section class="about-me">
-            <h2>About Me</h2>
-            <p>
-                I am currently pursuing a Bachelor of Computer Applications (BCA) at Navrachana University, Vadodara, while simultaneously enrolled in the prestigious online B.Sc. program in Data Science and Programming from the Indian Institute of Technology (IIT) Madras.
-            </p>
-            <p>
-                With a strong foundation in computer science and a focused interest in data analytics and programming, I am developing the technical and analytical skills needed to solve real-world problems through data-driven solutions. My academic journey reflects a commitment to excellence, continuous learning, and adaptability in a fast-evolving digital landscape.
-            </p>
-            <p>
-                I am eager to explore opportunities in data science, software development, or research that allow me to apply my knowledge, contribute meaningfully, and grow professionally.
-            </p>
-        </section>
+        <div class="social-links">
+            <a href="mailto:adityachandiramani@outlook.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://linkedin.com/in/adityachandiramani"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/aditya-v-1312"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/bizenix.in/"><i class="fab fa-instagram"></i></a>
+        </div>
         
-        <section class="education">
-            <h2>Education</h2>
-
-            <div class="cv-item">
-                <h3>Indian Institute of Technology, Madras</h3>
-                <p class="sub-heading">Bachelor's of Science, Data Science</p>
-                <p class="date">Jan 2025 - May 2029</p>
-            </div>
-
-            <div class="cv-item">
-                <h3>Navrachana University</h3>
-                <p class="sub-heading">Bachelor of Computer Applications, Computer Science</p>
-                <p class="date">Aug 2024 - May 2028</p>
-            </div>
-            
-            <div class="cv-item">
-                <h3>Lycee francais charlemagne</h3>
-                <p class="sub-heading">Spécialités Mathématiques & Physique-Chimie</p>
-                <p class="date">2012 - 2023</p>
-            </div>
-        </section>
-
-        <section class="experience">
-            <h2>Experience</h2>
-            
-            <div class="cv-item">
-                <h3>Founder</h3>
-                <p class="sub-heading">BIZENIX · Full-time</p>
-                <p class="date">Oct 2025 - Present · Vadodara, Gujarat, India</p>
-                <p>As the Founder of Bizenix, I am leading the vision, strategy, and execution of a tech-driven business solutions platform. My role includes:</p>
-                <ul>
-                    <li>Building and scaling digital products focused on business automation & growth</li>
-                    <li>Managing end-to-end operations — from product design to deployment</li>
-                    <li>Driving customer acquisition, partnerships, and brand development</li>
-                    <li>Overseeing technology stack, UX, and performance optimization</li>
-                    <li>Leading a small agile team and collaborating with freelancers/partners</li>
-                    <li>Handling financial planning, fundraising strategies, and market research</li>
-                </ul>
-                <p>Focused on creating smart, sustainable, and impactful business solutions for startups, SMEs, and enterprises.</p>
-            </div>
-            
-            <div class="cv-item">
-                <h3>Data Analyst</h3>
-                <p class="sub-heading">SkillFied Mentor · Internship</p>
-                <p class="date">May 2025 - Jul 2025 · Remote</p>
-                <ul>
-                    <li>Conducted comprehensive banking data analysis to identify trends and optimize financial strategies.</li>
-                    <li>Analyzed client subscription patterns for term deposits, enhancing customer retention strategies.</li>
-                    <li>Investigated colorectal cancer risk and survival data, contributing to improved healthcare outcomes.</li>
-                </ul>
-            </div>
-            
-            <div class="cv-item">
-                <h3>Data Analyst</h3>
-                <p class="sub-heading">BONAF · Internship</p>
-                <p class="date">May 2025 - Jul 2025 · Pointe-Noire, Republic of the Congo</p>
-                 <ul>
-                    <li>Analyzed import data for frozen goods in the Republic of the Congo, ensuring accuracy and relevance.</li>
-                    <li>Cleaned and rearranged large datasets to facilitate effective data visualization in Excel.</li>
-                    <li>Developed insightful visual reports that aided decision-making processes, enhancing operational efficiency.</li>
-                </ul>
-            </div>
-            
-            <div class="cv-item">
-                <h3>Intern</h3>
-                <p class="sub-heading">Basant Nihalani And Co · Full-time</p>
-                <p class="date">Dec 2024 - Jan 2025 · Vadodara, Gujarat, India</p>
-                 <ul>
-                    <li>Analyzed historical data to forecast future trends using Python's Pandas library and Microsoft Excel.</li>
-                    <li>Developed predictive models that enhanced decision-making processes for the company.</li>
-                    <li>Collaborated with team members to ensure data accuracy and relevance, contributing to strategic planning.</li>
-                </ul>
-            </div>
-            
-            <div class="cv-item">
-                <h3>Intern</h3>
-                <p class="sub-heading">SOCOTRANS · Full-time</p>
-                <p class="date">Jul 2024 - Aug 2024 · Republic of the Congo</p>
-                <ul>
-                    <li>Assisted in managing logistics paperwork and operations, ensuring compliance with local regulations.</li>
-                    <li>Collaborated with mentors on field operations, gaining hands-on experience in logistics management.</li>
-                    <li>Participated in a government boat verification process to confirm documentation accuracy.</li>
-                </ul>
-            </div>
-    
-            <div class="cv-item">
-                <h3>Intern</h3>
-                <p class="sub-heading">Ste Topchine SARLU · Full-time</p>
-                <p class="date">Dec 2023 - Jan 2024 · Republic of the Congo</p>
-                 <p>Supported import/export operations, managed client accounts, and contributed to social media marketing and sales initiatives.</p>
-            </div>
-        </section>
-
-        <section class="skills">
-            <h2>Skills</h2>
-            
-            <div class="skills-group">
-                <h4>Programming & Technology</h4>
-                <ul class="skills-list">
-                    <li>Python</li>
-                    <li>C (Programming Language)</li>
-                    <li>C++</li>
-                    <li>Object-Oriented Programming (OOP)</li>
-                    <li>Front-end Coding</li>
-                    <li>Back-end Coding</li>
-                    <li>Software Development</li>
-                    <li>Mobile Applications</li>
-                    <li>ERP Software</li>
-                    <li>Oracle SQL Developer</li>
-                    <li>MySQL</li>
-                </ul>
-            </div>
-            
-            <div class="skills-group">
-                <h4>Data & Analytics</h4>
-                <ul class="skills-list">
-                    <li>Data Analysis</li>
-                    <li>Statistical Data Analysis</li>
-                    <li>Exploratory Data Analysis (EDA)</li>
-                    <li>Data Modeling</li>
-                    <li>Microsoft Excel</li>
-                    <li>Data Entry</li>
-                    <li>Mathematics</li>
-                    <li>Statistics</li>
-                    <li>Pseudocode</li>
-                </ul>
-            </div>
-            
-            <div class="skills-group">
-                <h4>Business & Soft Skills</h4>
-                <ul class="skills-list">
-                    <li>English</li>
-                    <li>French</li>
-                    <li>English to French</li>
-                    <li>French to English</li>
-                    <li>Communication</li>
-                    <li>Customer Service</li>
-                    <li>Relationship Building</li>
-                    <li>Account Management</li>
-                    <li>Logistics Management</li>
-                    <li>Import/Export Operations</li>
-                    <li>Time Management</li>
-                    <li>Social Media Marketing</li>
-                    <li>Sales</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="contact">
-            <h2>Contact</h2>
-            <div class="contact-info">
-                <p>Email: <a href="mailto:adityachandiramani@outlook.com" target="_blank">adityachandiramani@outlook.com</a></p>
-                <p>LinkedIn: <a href="https://linkedin.com/in/adityachandiramani" target="_blank">linkedin.com/in/adityachandiramani</a></p>
-                <p>GitHub: <a href="https://github.com/aditya-v-1312" target="_blank">github.com/aditya-v-1312</a></p>
-            </div>
-        </section>
-
-    </div>
+        <div style="margin-top: 40px; font-size: 0.8rem; opacity: 0.6;">
+            &copy; 2025 Aditya Chandiramani. All rights reserved.
+        </div>
+    </footer>
 
 </body>
 </html>
