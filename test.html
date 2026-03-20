@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aditya Chandiramani | Founder @ Bizenix</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root {
+    --primary: #3e2469;
+    --primary-dark: #2a184a;
+    --accent: #6a4c9c;
+    --bg: #0a0a0a;
+    --card: rgba(255,255,255,0.05);
+    --text: #ffffff;
+    --text-light: #aaaaaa;
+    --border: rgba(255,255,255,0.08);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* NAV */
+nav {
+    position: fixed;
+    width: 100%;
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+}
+
+.nav-logo { font-weight: 800; }
+.nav-links { display:flex; gap:25px; }
+
+.nav-links a {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.nav-links a:hover { color:white; }
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background: radial-gradient(circle at center, #3e2469 0%, #000 70%);
+}
+
+.hero-content img {
+    width:180px;
+    border-radius:50%;
+    margin-bottom:20px;
+    border:4px solid white;
+}
+
+.hero h1 { font-size:3.5rem; }
+.hero .role { color:var(--text-light); margin-bottom:20px; }
+.hero p { color:var(--text-light); max-width:600px; margin:auto; }
+
+/* BUTTON */
+.btn {
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 28px;
+    background:var(--primary);
+    border-radius:30px;
+    color:white;
+    transition:0.3s;
+}
+.btn:hover {
+    transform:scale(1.05);
+    box-shadow:0 0 20px rgba(62,36,105,0.6);
+}
+.btn-outline {
+    border:1px solid white;
+    background:transparent;
+    margin-left:10px;
+}
+
+/* SECTIONS */
+.section-container {
+    max-width:1100px;
+    margin:auto;
+    padding:80px 20px;
+}
+
+.section-title {
+    text-align:center;
+    margin-bottom:40px;
+}
+.section-title::after {
+    content:'';
+    width:60px;
+    height:4px;
+    background:var(--primary);
+    display:block;
+    margin:10px auto;
+}
+
+/* PROJECTS */
+.projects-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.project-card {
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:15px;
+    overflow:hidden;
+    backdrop-filter:blur(10px);
+    transition:0.3s;
+}
+
+.project-card:hover {
+    transform:translateY(-12px) scale(1.02);
+    box-shadow:0 20px 40px rgba(62,36,105,0.3);
+}
+
+.project-img-placeholder {
+    height:160px;
+    background:linear-gradient(45deg,var(--primary),var(--accent));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:2rem;
+}
+
+.project-info { padding:20px; }
+
+/* TIMELINE */
+.timeline-container {
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:30px;
+}
+
+.timeline-item {
+    margin-bottom:30px;
+    border-left:2px solid var(--primary);
+    padding-left:20px;
+}
+
+/* SKILLS */
+.skills-wrapper {
+    display:flex;
+    flex-wrap:wrap;
+    gap:30px;
+    justify-content:center;
+}
+
+.skill-category {
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:20px;
+}
+
+.tags {
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+.tag {
+    background:rgba(255,255,255,0.08);
+    padding:8px 15px;
+    border-radius:20px;
+}
+
+/* CONNECT */
+.connect-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+.connect-card {
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+}
+
+/* FOOTER */
+footer {
+    background:black;
+    text-align:center;
+    padding:40px;
+    color:var(--text-light);
+}
+
+/* ANIMATIONS */
+.fade {
+    opacity:0;
+    transform:translateY(40px);
+    transition:0.8s;
+}
+.fade.show {
+    opacity:1;
+    transform:translateY(0);
+}
+</style>
+</head>
+
+<body>
+<body>
+
+    <nav>
+        <div class="nav-logo">ADITYA C.</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero" id="about">
+        <div class="hero-content">
+            <img src="profile.jpeg" alt="Aditya Chandiramani">
+            <h1>Aditya Chandiramani</h1>
+            <p class="role">Founder of Bizenix | Building the Student Opportunity Platform</p>
+            <p style="max-width: 600px; margin: 0 auto 30px auto; color: #666;">
+                Building Bizenix — a platform designed to help students turn skills into real opportunities. Focused on creating systems that enable earning, networking, and growth at scale.
+            </p>
+            <a href="#contact" class="btn">Get In Touch</a>
+            <a href="#projects" class="btn btn-outline">View Work</a>
+        </div>
+    </header>
+
+    <section class="section-container">
+    <h2 class="section-title">About Bizenix</h2>
+    <p style="text-align:center; max-width:700px; margin:auto; color:#666;">
+        Bizenix is a unified platform built for college students to earn, connect, and grow. It combines freelancing, social networking, AI tools, and campus marketplaces into one ecosystem — reducing friction and unlocking opportunities for students worldwide.
+    </p>
+    </section>
+
+    <section class="section-container" id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div class="project-img-placeholder"><i class="fas fa-rocket"></i></div>
+                <div class="project-info">
+                    <h3>BIZENIX Platform</h3>
+                    <p>Designing and building a student ecosystem platform that integrates freelancing, networking, AI tools, and campus marketplaces into one unified system.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Founder</span>
+                        <span class="tech-tag">Product</span>
+                        <span class="tech-tag">Full Stack</span>
+                        <span class="tech-tag">Startup</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img-placeholder" style="background: linear-gradient(45deg, #27ae60, #2ecc71);"><i class="fas fa-recycle"></i></div>
+                <div class="project-info">
+                    <h3>Urban Waste Management Study</h3>
+                    <p>Documentary and data analysis project focusing on waste management protocols in the Gotri area of Vadodara. identified key logistical bottlenecks.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Research</span>
+                        <span class="tech-tag">Data Collection</span>
+                        <span class="tech-tag">Social Impact</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img-placeholder" style="background: linear-gradient(45deg, #2980b9, #3498db);"><i class="fas fa-brain"></i></div>
+                <div class="project-info">
+                    <h3>AI-Powered Business Manager</h3>
+                    <p>Conceptualized and designed a business plan for an app integrating Artificial Intelligence to streamline management tasks for modern enterprises.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">AI Strategy</span>
+                        <span class="tech-tag">Product Design</span>
+                        <span class="tech-tag">Automation</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img-placeholder" style="background: linear-gradient(45deg, #e67e22, #f1c40f);"><i class="fas fa-code"></i></div>
+                <div class="project-info">
+                    <h3>Python Algorithms Repository</h3>
+                    <p>A collection of optimized Data Structures and Algorithms implemented in Python, demonstrating proficiency in complex logic and performance optimization.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">DSA</span>
+                        <span class="tech-tag">Optimization</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img-placeholder" style="background: linear-gradient(45deg, #8e44ad, #9b59b6);"><i class="fas fa-ship"></i></div>
+                <div class="project-info">
+                    <h3>Logistics Data Optimization</h3>
+                    <p>Analyzed import data for frozen goods in the Republic of Congo. Cleaned large datasets and created visual reports to enhance operational efficiency.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Excel</span>
+                        <span class="tech-tag">Data Cleaning</span>
+                        <span class="tech-tag">Visualization</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img-placeholder" style="background: linear-gradient(45deg, #c0392b, #e74c3c);"><i class="fas fa-users"></i></div>
+                <div class="project-info">
+                    <h3>NUV Tech Leadership</h3>
+                    <p>Organized key student events including a 'LinkedIn & Personal Branding' workshop for the BCA department at Navrachana University.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Leadership</span>
+                        <span class="tech-tag">Event Mgmt</span>
+                        <span class="tech-tag">Mentoring</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-container" id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline-container">
+            
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div><span class="company">BIZENIX</span> — Founder</div>
+                    <span class="date">Oct 2025 - Present</span>
+                </div>
+                <p>Leading product vision and execution for Bizenix. Building a scalable student platform, defining user experience, and developing go-to-market strategy.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div><span class="company">SkillFied Mentor</span> — Data Analyst Intern</div>
+                    <span class="date">May 2025 - Jul 2025</span>
+                </div>
+                <p>Conducted banking data analysis and investigated healthcare outcomes regarding colorectal cancer risk.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div><span class="company">BONAF</span> — Data Analyst Intern</div>
+                    <span class="date">May 2025 - Jul 2025</span>
+                </div>
+                <p>Cleaned large datasets and developed visual reports for decision-making in import operations.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div><span class="company">Basant Nihalani And Co</span> — Intern</div>
+                    <span class="date">Dec 2024 - Jan 2025</span>
+                </div>
+                <p>Developed predictive models using Python to forecast future trends and enhance strategic planning.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-container" id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-wrapper">
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Programming</h3>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">C/C++</span>
+                    <span class="tag">OOP</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">Web Dev</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-database"></i> Data Science</h3>
+                <div class="tags">
+                    <span class="tag">Data Analysis</span>
+                    <span class="tag">Statistics</span>
+                    <span class="tag">EDA</span>
+                    <span class="tag">Modeling</span>
+                    <span class="tag">Excel</span>
+                    <span class="tag">Visualization</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-briefcase"></i> Business</h3>
+                <div class="tags">
+                    <span class="tag">Leadership</span>
+                    <span class="tag">Logistics</span>
+                    <span class="tag">Communication</span>
+                    <span class="tag">Marketing</span>
+                    <span class="tag">French (Bilingual)</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-container" id="connect">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="connect-grid">
+            
+            <div class="connect-card">
+                <h3><i class="fab fa-github"></i> GitHub Activity</h3>
+                <a href="https://github.com/aditya-v-1312" target="_blank">
+                    <img src="https://github-readme-stats.vercel.app/api?username=aditya-v-1312&show_icons=true&bg_color=ffffff&title_color=3e2469&text_color=333&icon_color=f07800&border_color=eee&hide_border=true" alt="Aditya's GitHub Stats" style="box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                </a>
+                <br>
+                <a href="https://github-readme-stats.vercel.app/api/top-langs/?username=aditya-v-1312&layout=compact&bg_color=ffffff&title_color=3e2469&text_color=333&border_color=eee&hide_border=true" target="_blank">
+                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=aditya-v-1312&layout=compact&bg_color=ffffff&title_color=3e2469&text_color=333&border_color=eee&hide_border=true" alt="Top Languages" style="margin-top: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                </a>
+            </div>
+
+            <div class="connect-card">
+                <h3><i class="fab fa-linkedin"></i> LinkedIn Profile</h3>
+                
+                <div class="badge-base LI-profile-badge" 
+                     data-locale="en_US" 
+                     data-size="medium" 
+                     data-theme="light" 
+                     data-type="VERTICAL" 
+                     data-vanity="adityachandiramani" 
+                     data-version="v1">
+                     <a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/adityachandiramani?trk=profile-badge">
+                        Aditya Chandiramani
+                     </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+
+    <footer id="contact">
+        <h2 style="color: white; margin-bottom: 20px;">Let's Connect</h2>
+        <p style="opacity: 0.8;">Building Bizenix. Open to collaborations, partnerships, and opportunities.</p>
+        
+        <div class="social-links">
+            <a href="mailto:adityachandiramani@outlook.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://linkedin.com/in/adityachandiramani"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/aditya-v-1312"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/bizenix.in/"><i class="fab fa-instagram"></i></a>
+        </div>
+        
+        <div style="margin-top: 40px; font-size: 0.8rem; opacity: 0.6;">
+            &copy; 2025 Aditya Chandiramani. All rights reserved.
+        </div>
+    </footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+});
+
+document.querySelectorAll('.section-container, .project-card, .timeline-item, .skill-category, .connect-card')
+.forEach(el => {
+    el.classList.add('fade');
+    observer.observe(el);
+});
+</script>
+
+</body>
+</html>
