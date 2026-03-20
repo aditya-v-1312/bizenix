@@ -1,128 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bizenix - Coming Soon</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bizenix</title>
 
-    <style>
-        /* --- Global Styles --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-        body, html {
-            height: 100%;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
+<style>
+:root {
+    --primary: #3e2469;
+    --black: #000000;
+    --white: #ffffff;
+    --gray: #aaaaaa;
+}
 
-        /* --- Background & Layout --- */
-        body {
-            /* Changed to a clean white background */
-            background: #ffffff;
-            color: #333333; /* Default text color */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-            /* This centers the content */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-            padding: 20px;
-        }
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+}
 
-        /* --- Content Container --- */
-        .container {
-            max-width: 650px;
-            width: 100%;
-            
-            /* Changed to the new purple background */
-            background: #3e2469;
-            color: #ffffff; /* Text inside container is white */
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Added a subtle shadow */
-        }
+/* NAV */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 8%;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+}
 
-        /* --- Logo --- */
-        .logo {
-            width: 100%;
-            max-width: 350px; /* Adjust size as needed */
-            height: auto;
-            margin-bottom: 25px;
-            background: #ffffff; /* Ensure logo background is white */
-            border-radius: 8px;  /* Soften the edges of the logo's white box */
-        }
+nav h2 { font-weight: 700; }
 
-        /* --- Text Content --- */
-        h1 {
-            font-size: 3.5rem; /* Large "COMING SOON" text */
-            font-weight: 700;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-        }
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 
-        p {
-            font-size: 1.15rem;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
+    background: radial-gradient(circle at center, #3e2469 0%, #000 70%);
+    padding: 20px;
+}
 
-        /* --- Portfolio Button --- */
-        .portfolio-button {
-            display: inline-block;
-            padding: 15px 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            background: #ffffff; /* White button looks great on purple */
-            color: #3e2469;   /* Button text is purple */
-            text-decoration: none;
-            border-radius: 5px;
-            margin-bottom: 30px;
-            transition: all 0.3s ease;
-        }
+.logo {
+    max-width: 220px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    background: white;
+}
 
-        .portfolio-button:hover {
-            background-color: #f0f0f0;
-            transform: translateY(-2px); /* Slight lift on hover */
-        }
+/* TEXT */
+.hero h1 {
+    font-size: 3rem;
+    max-width: 700px;
+    line-height: 1.2;
+    animation: fadeUp 1s ease forwards;
+}
 
-        /* --- Social Media Links --- */
-        .social-links a {
-            color: #ffffff; /* White icons */
-            text-decoration: none;
-            font-size: 1.8rem; /* Size of the icons */
-            margin: 0 15px;
-            transition: color 0.3s ease;
-        }
+.hero p {
+    margin-top: 15px;
+    color: var(--gray);
+    max-width: 500px;
+    animation: fadeUp 1.2s ease forwards;
+}
 
-        .social-links a:hover {
-            color: #cccccc; /* Light gray on hover */
-        }
-    </style>
+/* BUTTONS */
+.buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn {
+    padding: 14px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+/* PRIMARY */
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(62,36,105,0.6);
+}
+
+/* SECONDARY */
+.btn-secondary {
+    border: 1px solid white;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: black;
+}
+
+/* FEATURES */
+.features {
+    padding: 100px 8%;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 25px;
+}
+
+.card {
+    background: rgba(255,255,255,0.05);
+    padding: 25px;
+    border-radius: 15px;
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    background: rgba(62,36,105,0.2);
+}
+
+/* FOOTER */
+footer {
+    padding: 40px;
+    text-align: center;
+    color: var(--gray);
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 1s;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.waitlist-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.waitlist-form input {
+    padding: 14px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    width: 250px;
+    font-size: 0.9rem;
+}
+</style>
 </head>
+
 <body>
 
-    <div class="container">
-        
-        <img src="BIZENIX LOGO.jpg" alt="Bizenix Logo" class="logo">
+<nav>
+    <h2>Bizenix</h2>
+</nav>
 
-        <h1>COMING SOON</h1>
-        
-        <p>We're working hard to launch our new site. In the meantime, check out my work!</p>
+<section class="hero">
+    
+    <img src="BIZENIX LOGO.jpg" class="logo">
 
-        <a href="folio.html" class="portfolio-button">View My Portfolio</a>
+    <h1>Bizenix — Where Students Turn Skills Into Opportunities</h1>
+    
+    <p>
+        A unified platform to build, earn, connect, and grow — all in one place.
+    </p>
 
-        <div class="social-links">
-            <a href="https://www.instagram.com/bizenix.in/?utm_source=ig_web_button_share_sheet" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/company/bizenix" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        </div>
+    <div class="buttons">
+        <a href="folio.html" class="btn btn-secondary">Explore Founder</a>
+        <form action="https://formspree.io/f/mnjgrawd" method="POST" class="waitlist-form">
+            <input type="email" name="email" placeholder="Enter your email" required>
+    
+                <button type="submit" class="btn btn-primary">
+                    Join Early Access
+                </button>
 
+        </form>
     </div>
+
+</section>
+
+<section class="features hidden">
+    <h2>Everything You Need</h2>
+    
+    <div class="grid">
+        <div class="card">
+            <h3>💼 Freelancing</h3>
+            <p>Earn money using your skills directly from campus.</p>
+        </div>
+        <div class="card">
+            <h3>🤝 Networking</h3>
+            <p>Connect with students, alumni, and opportunities.</p>
+        </div>
+        <div class="card">
+            <h3>🛒 Marketplace</h3>
+            <p>Buy and sell products within your college ecosystem.</p>
+        </div>
+        <div class="card">
+            <h3>🤖 AI Tools</h3>
+            <p>Boost productivity with built-in AI assistance.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Bizenix. All rights reserved.
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+});
+document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
