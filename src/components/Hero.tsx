@@ -1,14 +1,38 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden flex items-center justify-center bg-black">
 
-      {/* Gradient Orbs */}
-      <div className="absolute top-20 left-20 w-96 h-96 bg-purple-700/30 blur-[120px] rounded-full" />
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-violet-500/20 blur-[120px] rounded-full" />
+      {/* Animated Background Orbs */}
+      <motion.div
+        animate={{
+          x: [0, 60, 0],
+          y: [0, -40, 0],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute top-20 left-20 w-[500px] h-[500px] bg-purple-700/30 blur-[150px] rounded-full"
+      />
+
+      <motion.div
+        animate={{
+          x: [0, -60, 0],
+          y: [0, 40, 0],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute bottom-20 right-20 w-[500px] h-[500px] bg-violet-500/20 blur-[150px] rounded-full"
+      />
 
       {/* Grid Background */}
       <div
@@ -20,72 +44,133 @@ export default function Hero() {
         }}
       />
 
+      {/* Content */}
       <motion.div
-        initial={{ opacity: 0, y: 60 }}
+        initial={{ opacity: 0, y: 80 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="relative z-10 max-w-5xl text-center px-6"
+        transition={{
+          duration: 1,
+          ease: "easeOut",
+        }}
+        className="relative z-10 max-w-6xl text-center px-6"
       >
-        <p className="text-purple-400 uppercase tracking-[0.4em] mb-6">
-          Student Entrepreneurship Platform
-        </p>
 
-        <h1 className="text-white text-6xl md:text-8xl font-black leading-none">
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 border border-white/10 bg-white/5 backdrop-blur-md rounded-full px-5 py-2 mb-8">
+          <span className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></span>
+          <span className="text-sm text-zinc-300">
+            Student Entrepreneurship Platform
+          </span>
+        </div>
+
+        {/* Heading */}
+        <h1
+          className="
+          text-6xl
+          md:text-8xl
+          lg:text-9xl
+          font-black
+          leading-none
+          bg-gradient-to-r
+          from-purple-400
+          via-white
+          to-purple-500
+          bg-clip-text
+          text-transparent
+          "
+        >
           BIZENIX
         </h1>
 
-        <p className="text-zinc-400 text-lg md:text-2xl mt-8 max-w-3xl mx-auto">
-          Build your network. Find opportunities.
-          Launch your next venture.
+        {/* Subtitle */}
+        <p className="text-zinc-400 text-lg md:text-2xl mt-8 max-w-3xl mx-auto leading-relaxed">
+          Connecting ambitious students, freelancers and entrepreneurs
+          through technology, opportunities and innovation.
         </p>
 
-        <div className="flex flex-col md:flex-row gap-4 justify-center mt-10">
-          <button className="px-8 py-4 rounded-full bg-white text-black font-semibold">
-            Explore Platform
-          </button>
+        {/* Buttons */}
+        <div className="flex flex-col md:flex-row gap-5 justify-center mt-12">
 
           <a
+  href="#services"
+  className="
+  px-8
+  py-4
+  rounded-full
+  bg-white
+  text-black
+  font-semibold
+  transition-all
+  duration-300
+  hover:scale-105
+  hover:shadow-[0_0_40px_rgba(255,255,255,0.35)]
+  "
+>
+  Get Started
+</a>
+
+          <Link
             href="/founder"
-            className="px-8 py-4 rounded-full border border-white/20 text-white"
+            className="
+            px-8
+            py-4
+            rounded-full
+            border
+            border-white/20
+            text-white
+            transition-all
+            duration-300
+            hover:border-purple-500
+            hover:bg-white/5
+            "
           >
             Meet The Founder
-          </a>
+          </Link>
+
         </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-20">
+
+          <div>
+            <h3 className="text-white text-3xl font-bold">100+</h3>
+            <p className="text-zinc-500 text-sm mt-2">
+              Students
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-white text-3xl font-bold">20+</h3>
+            <p className="text-zinc-500 text-sm mt-2">
+              Projects
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-white text-3xl font-bold">∞</h3>
+            <p className="text-zinc-500 text-sm mt-2">
+              Opportunities
+            </p>
+          </div>
+
+        </div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          animate={{
+            y: [0, 10, 0],
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: 1.5,
+          }}
+          className="mt-16 text-zinc-500 text-sm"
+        >
+          ↓ Scroll to Explore
+        </motion.div>
+
       </motion.div>
+
     </section>
   );
 }
-
-<section className="py-32 px-6">
-  <div className="max-w-5xl mx-auto">
-
-    <h2 className="text-5xl font-bold mb-12">
-      Experience
-    </h2>
-
-    <div className="space-y-8">
-
-      <div className="border-l-2 border-purple-500 pl-6">
-        <h3 className="text-2xl font-semibold">
-          Founder — BIZENIX
-        </h3>
-
-        <p className="text-zinc-400">
-          Building a platform connecting students,
-          freelancers and entrepreneurs.
-        </p>
-      </div>
-
-      <div className="border-l-2 border-purple-500 pl-6">
-        <h3 className="text-2xl font-semibold">
-          Data Analyst Intern
-        </h3>
-
-        <p className="text-zinc-400">
-          Worked on analytics, research and reporting.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>

@@ -1,4 +1,5 @@
 export default function Services() {
+  <section id="services" className="py-32 px-6"></section>
   const services = [
     "Freelancing",
     "Networking",
@@ -30,6 +31,8 @@ export default function Services() {
               rounded-3xl
               p-8
               hover:scale-105
+              hover:border-purple-500/50
+              hover:shadow-[0_0_40px_rgba(168,85,247,0.25)]
               transition
               "
             >
